@@ -11,6 +11,8 @@ import { PostsComponent } from './pages/posts/posts.component';
 import { UserDetailComponent } from './pages/user-detail/user-detail.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PostDetailComponent } from './pages/post-detail/post-detail.component';
+import { CommentDetailComponent } from './pages/comment-detail/comment-detail.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CommentsComponent,
     PostsComponent,
     UserDetailComponent,
+    PostDetailComponent,
+    CommentDetailComponent,
   ],
   imports: [
     BrowserModule,

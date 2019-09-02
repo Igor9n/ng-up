@@ -1,30 +1,37 @@
-<h2>Comments</h2>
-<mat-table [dataSource]="comments">
-  <ng-container matColumnDef="id">
-    <mat-header-cell *matHeaderCellDef> ID</mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
-  </ng-container>
-  <ng-container matColumnDef="name">
-    <mat-header-cell *matHeaderCellDef> Name</mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
-  </ng-container>
-  <ng-container matColumnDef="body">
-    <mat-header-cell *matHeaderCellDef> Body</mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.body}} </mat-cell>
-  </ng-container>
-  <ng-container matColumnDef="email">
-    <mat-header-cell *matHeaderCellDef> Email</mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
-  </ng-container>
-  <ng-container matColumnDef="post_id">
-    <mat-header-cell *matHeaderCellDef> Post ID</mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.post_id}} </mat-cell>
-  </ng-container>
-  <ng-container matColumnDef="user_id">
-    <mat-header-cell *matHeaderCellDef> User ID</mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.user_id}} </mat-cell>
-  </ng-container>
+<mat-expansion-panel class="margin-top-10">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Comments
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  <hr>
+  <mat-table [dataSource]="comments">
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef> ID</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef> Name</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="body">
+      <mat-header-cell *matHeaderCellDef> Body</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.body}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="email">
+      <mat-header-cell *matHeaderCellDef> Email</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="post_id">
+      <mat-header-cell *matHeaderCellDef> Post ID</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.post_id}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="user_id">
+      <mat-header-cell *matHeaderCellDef> User ID</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.user_id}} </mat-cell>
+    </ng-container>
 
-  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-</mat-table>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</mat-expansion-panel>

@@ -20,10 +20,29 @@ export class CommentsService {
   ) {
   }
 
-  getComments = (): Observable<Comment[]> => {
+  getComments(): Observable<Comment[]> {
     return this.http.get<Comment[]>(this.commentsUrl)
       .pipe(
         tap(() => console.log('[Fetched] Comments'))
       );
+  }
+
+  getComment(id: number): Observable<Comment> {
+    const url = `${ this.commentsUrl }/${ id }`;
+
+    return this.http.get<Comment>(url).pipe(
+      tap(() => console.log(`[Fetched] Comment #${ id }`))
+    );
+  }
+
+  createComment(comment: Comment): Observable<any> {
+    return this.http.put(this.commentsUrl, comment, this.httpOptions)
+      .pipe(
+        tap(() => console.log('[Create] Comment'))
+      );
+  }
+
+  deleteComment(id: number): Observable<any> {
+    return this.http.delete(`${ this.commentsUrl }/${ id }`, this.httpOptions);
   }
 }

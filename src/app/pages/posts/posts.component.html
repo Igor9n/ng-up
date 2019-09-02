@@ -1,22 +1,29 @@
-<h2>Posts</h2>
-<mat-table [dataSource]="posts" >
-  <ng-container matColumnDef="id">
-    <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
-  </ng-container>
-  <ng-container matColumnDef="title">
-    <mat-header-cell *matHeaderCellDef> Title </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.title}} </mat-cell>
-  </ng-container>
-  <ng-container matColumnDef="body">
-    <mat-header-cell *matHeaderCellDef> Body </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.body}} </mat-cell>
-  </ng-container>
-  <ng-container matColumnDef="user_id">
-    <mat-header-cell *matHeaderCellDef> User ID </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.user_id}} </mat-cell>
-  </ng-container>
+<mat-expansion-panel class="margin-top-10">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Posts
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  <hr>
+  <mat-table [dataSource]="posts">
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef> ID</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="title">
+      <mat-header-cell *matHeaderCellDef> Title</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.title}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="body">
+      <mat-header-cell *matHeaderCellDef> Body</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.body}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="user_id">
+      <mat-header-cell *matHeaderCellDef> User ID</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.user_id}} </mat-cell>
+    </ng-container>
 
-  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-</mat-table>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</mat-expansion-panel>

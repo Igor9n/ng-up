@@ -20,10 +20,29 @@ export class PostsService {
   ) {
   }
 
-  getPosts = (): Observable<Post[]> => {
+  getPosts(): Observable<Post[]> {
     return this.http.get<Post[]>(this.postsUrl)
       .pipe(
         tap(() => console.log('[Fetched] Posts'))
       );
+  }
+
+  getPost(id: number): Observable<Post> {
+    const url = `${ this.postsUrl }/${ id }`;
+
+    return this.http.get<Post>(url).pipe(
+      tap(() => console.log(`[Fetched] Post #${ id }`))
+    );
+  }
+
+  createPost(post: Post): Observable<any> {
+    return this.http.put(this.postsUrl, post, this.httpOptions)
+      .pipe(
+        tap(() => console.log('[Create] Post'))
+      );
+  }
+
+  deletePost(id: number): Observable<any> {
+    return this.http.delete(`${ this.postsUrl }/${ id }`, this.httpOptions);
   }
 }
