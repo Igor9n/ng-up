@@ -1,0 +1,64 @@
+<div *ngIf="message" class="user-card margin-top-10">
+  <mat-card>
+    {{ message }}
+    <div>
+      <button class="margin-top-10" mat-raised-button (click)="message = null">Clear</button>
+    </div>
+  </mat-card>
+</div>
+
+<mat-expansion-panel class="margin-top-10">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      All users
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  <hr>
+  <h2>Users</h2>
+  <mat-table [dataSource]="users">
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef> ID</mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <a mat-button routerLink="/users/{{element.id}}">
+          <span class="badge">{{element.id}}</span>
+        </a>
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="username">
+      <mat-header-cell *matHeaderCellDef> Username</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.username}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="password">
+      <mat-header-cell *matHeaderCellDef> Password</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.password}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</mat-expansion-panel>
+
+<mat-expansion-panel class="margin-top-10">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Add new user
+    </mat-panel-title>
+    <mat-panel-description>
+      Create new user by username and password
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <hr>
+  <div>
+    <mat-form-field>
+      <input matInput #username placeholder="Username"/>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field>
+      <input matInput #password placeholder="Password"/>
+    </mat-form-field>
+  </div>
+  <button mat-raised-button (click)="create(username.value, password.value);username.value=''; password.value=''">
+    Add
+  </button>
+</mat-expansion-panel>
